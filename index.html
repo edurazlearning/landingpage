@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EduraZ — Free AI Learning Roadmap Generator. Get personalized learning roadmaps with weekly milestones and daily tasks in 30 seconds. No payment required.">
+    <meta property="og:title" content="EduraZ — Free AI Learning Roadmap Generator">
+    <meta property="og:description" content="Stop wasting time searching. Get a personalized roadmap in 30 seconds. Free to use.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eduraz.com/">
+    <title>EduraZ — Free AI Learning Roadmap Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/favicon.svg">
+</head>
+<body>
+    <!-- Sticky Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">EduraZ</a>
+            <div class="nav-actions">
+                <a href="about.html" class="btn btn-secondary">About</a>
+                <a href="https://eduraz.com/" class="btn btn-primary">Try the free app</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Your learning journey, mapped in 30 seconds.</h1>
+            <p class="hero-subtitle">Stop searching. Start learning. EduraZ transforms your goals into clear roadmaps with weekly milestones and daily tasks—no overwhelm, just progress.</p>
+            <p class="hero-free">Completely free • No credit card • Always accessible</p>
+            <div class="hero-actions">
+                <a href="https://eduraz.com/" class="btn btn-primary btn-large">Try the free app</a>
+                <button class="btn btn-secondary btn-large" onclick="document.getElementById('examples').scrollIntoView({behavior: 'smooth'})">See examples</button>
+            </div>
+            <p class="hero-note">Perfect for coding, languages, academics, career skills, and everything in between.</p>
+        </div>
+    </section>
+
+    <!-- Phone Preview Section -->
+    <section class="preview-section">
+        <div class="container">
+            <div class="phone-mockup">
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <iframe 
+                            src="https://eduraz.com/" 
+                            frameborder="0"
+                            allowfullscreen
+                            class="phone-iframe"
+                            title="EduraZ Roadmap Preview"
+                        ></iframe>
+                    </div>
+                    <div class="phone-home-indicator"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section class="examples-section" id="examples">
+        <div class="container">
+            <h2 class="section-title">Examples</h2>
+            <div class="examples-grid">
+                <div class="example-card card" data-example='{"goal":"I want to learn HTML & CSS in 30 days","timeframe":"30","timePerDay":"60","experience":"beginner","learningStyle":"structured","intensity":"normal"}'>
+                    <h3 class="example-title">Learn HTML & CSS in 30 days</h3>
+                    <ul class="example-list">
+                        <li>Week-by-week structure</li>
+                        <li>Daily coding exercises</li>
+                        <li>Build 3 real projects</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-small" onclick="loadExample(this)">Load this example</button>
+                </div>
+                <div class="example-card card" data-example='{"goal":"I want to learn Python for quantitative investing in 90 days","timeframe":"90","timePerDay":"90","experience":"intermediate","learningStyle":"project-based","intensity":"high"}'>
+                    <h3 class="example-title">Learn Python for quant investing in 90 days</h3>
+                    <ul class="example-list">
+                        <li>Python fundamentals + finance</li>
+                        <li>Data analysis projects</li>
+                        <li>Backtesting strategies</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-small" onclick="loadExample(this)">Load this example</button>
+                </div>
+                <div class="example-card card" data-example='{"goal":"I want to learn neuroscience fundamentals and build strong study habits","timeframe":"60","timePerDay":"60","experience":"beginner","learningStyle":"structured","intensity":"normal"}'>
+                    <h3 class="example-title">Neuroscience fundamentals + study habits</h3>
+                    <ul class="example-list">
+                        <li>Core concepts weekly</li>
+                        <li>Study technique practice</li>
+                        <li>Memory optimization tips</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-small" onclick="loadExample(this)">Load this example</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How it works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Describe your goal</h3>
+                    <p class="step-text">Tell us what you want to learn. Be specific—the more detail, the better your roadmap.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Pick your schedule</h3>
+                    <p class="step-text">Set your timeframe, daily time commitment, and learning style. We'll build your roadmap around your life.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Get your roadmap</h3>
+                    <p class="step-text">Receive a personalized roadmap with weekly milestones and daily tasks. Start learning immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why EduraZ -->
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title">Why EduraZ</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card card">
+                    <h3 class="benefit-title">Clear weekly milestones</h3>
+                    <p class="benefit-text">Know exactly what to focus on each week. No guesswork, no overwhelm—just a clear path forward.</p>
+                </div>
+                <div class="benefit-card card">
+                    <h3 class="benefit-title">Daily action plan</h3>
+                    <p class="benefit-text">Every day, you'll know exactly what to do. Break down learning into tasks you can actually complete.</p>
+                </div>
+                <div class="benefit-card card">
+                    <h3 class="benefit-title">Stop info overload</h3>
+                    <p class="benefit-text">No more endless searching through resources. Get a focused, personalized path tailored to your specific goal.</p>
+                </div>
+                <div class="benefit-card card">
+                    <h3 class="benefit-title">Built for momentum</h3>
+                    <p class="benefit-text">Designed to keep you moving forward. Clear progress markers show you how far you've come and what's next.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">About EduraZ</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Every learner has been there: you know what you want to learn, but you don't know where to start. Hours of research later, you're more confused than when you began.</p>
+                    <p>EduraZ changes that. We transform your learning goals into clear, actionable roadmaps—complete with weekly milestones and daily tasks. No subscriptions. No hidden costs. No complexity.</p>
+                    <p>Just you, your goal, and a clear path forward. Get started in 30 seconds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+                <div class="feature-card card">
+                    <h3 class="feature-title">AI-Powered Roadmaps</h3>
+                    <p class="feature-text">Get personalized learning paths tailored to your specific goals and timeline.</p>
+                </div>
+                <div class="feature-card card">
+                    <h3 class="feature-title">Weekly Milestones</h3>
+                    <p class="feature-text">Break down your journey into manageable weekly goals that keep you on track.</p>
+                </div>
+                <div class="feature-card card">
+                    <h3 class="feature-title">Daily Tasks</h3>
+                    <p class="feature-text">Clear, actionable daily tasks that make progress feel achievable.</p>
+                </div>
+                <div class="feature-card card">
+                    <h3 class="feature-title">Flexible Scheduling</h3>
+                    <p class="feature-text">Customize your roadmap based on your available time and learning pace.</p>
+                </div>
+                <div class="feature-card card">
+                    <h3 class="feature-title">Multiple Learning Styles</h3>
+                    <p class="feature-text">Choose between structured or project-based approaches that match how you learn best.</p>
+                </div>
+                <div class="feature-card card">
+                    <h3 class="feature-title">100% Free</h3>
+                    <p class="feature-text">No credit card required. No hidden fees. Just free learning roadmaps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h2 class="section-title">What learners say</h2>
+            <div class="quotes-grid">
+                <div class="quote-card card">
+                    <p class="quote-text">"This saved me hours of searching."</p>
+                    <p class="quote-author">— Self-learner</p>
+                </div>
+                <div class="quote-card card">
+                    <p class="quote-text">"Finally a plan that makes sense."</p>
+                    <p class="quote-author">— Coding student</p>
+                </div>
+                <div class="quote-card card">
+                    <p class="quote-text">"The weekly structure is perfect."</p>
+                    <p class="quote-author">— Career switcher</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-grid">
+                <div class="faq-card">
+                    <h3 class="faq-question">Is EduraZ really free?</h3>
+                    <p class="faq-answer">Yes—completely free. No payment required, no credit card needed, no hidden fees. We're committed to keeping EduraZ free and accessible to everyone.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="faq-question">How does it work?</h3>
+                    <p class="faq-answer">Describe what you want to learn, set your timeframe and schedule preferences, and get an instant personalized roadmap. It takes about 30 seconds from start to finish.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="faq-question">What can I learn with EduraZ?</h3>
+                    <p class="faq-answer">Anything. Coding, languages, academic subjects, career skills, hobbies—if you can learn it, we can create a roadmap for it. The possibilities are endless.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="faq-question">How long does it take to get a roadmap?</h3>
+                    <p class="faq-answer">About 30 seconds. Enter your goal and preferences, and your personalized roadmap is ready instantly. No waiting, no delays—just your learning plan.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://eduraz.com/" class="footer-link">Try the free app</a>
+                    <a href="about.html" class="footer-link">About</a>
+                    <a href="privacy.html" class="footer-link">Privacy</a>
+                    <a href="security.html" class="footer-link">Security</a>
+                </div>
+                <p class="footer-copyright">© 2024 EduraZ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

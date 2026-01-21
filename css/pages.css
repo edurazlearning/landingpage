@@ -1,0 +1,202 @@
+/* Page-specific styles for About, Privacy, and Security pages */
+
+.policy-page {
+    padding: 120px 0 80px;
+}
+
+.policy-page-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.policy-page-title {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+.policy-page-subtitle {
+    font-size: clamp(16px, 2vw, 18px);
+    color: var(--muted2);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.policy-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.policy-section {
+    margin-bottom: 48px;
+}
+
+.policy-section h2 {
+    font-size: clamp(24px, 3vw, 28px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+.policy-section h3 {
+    font-size: clamp(20px, 2.5vw, 22px);
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.policy-section p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.policy-section ul {
+    margin: 20px 0;
+    padding-left: 24px;
+}
+
+.policy-section li {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.policy-updated {
+    text-align: center;
+    padding-top: 48px;
+    margin-top: 48px;
+    border-top: 1px solid var(--border);
+    color: var(--muted2);
+    font-size: 15px;
+}
+
+/* About page specific */
+.about-page {
+    padding: 120px 0 80px;
+}
+
+.about-page-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.about-page-title {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+.about-page-subtitle {
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: var(--muted2);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.about-content-section {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.about-content-section h2 {
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+.about-content-section p {
+    font-size: 19px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.about-content-section p:last-child {
+    margin-bottom: 0;
+}
+
+.about-cta {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 80px;
+    border-top: 1px solid var(--border);
+}
+
+.about-cta h3 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text);
+}
+
+.about-cta p {
+    font-size: 18px;
+    color: var(--muted2);
+    margin-bottom: 32px;
+}
+
+/* Security page specific */
+.security-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin: 40px 0;
+}
+
+.security-feature {
+    padding: 24px;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.security-feature h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.security-feature p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .policy-page,
+    .about-page {
+        padding: 100px 0 60px;
+    }
+    
+    .policy-page-header,
+    .about-page-header {
+        margin-bottom: 60px;
+    }
+    
+    .about-content-section {
+        margin-bottom: 48px;
+    }
+    
+    .about-cta {
+        margin-top: 60px;
+        padding-top: 60px;
+    }
+}
