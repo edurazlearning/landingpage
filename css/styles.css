@@ -1,18 +1,25 @@
 :root {
     --bg: #fafafa;
+    --bg-gradient: linear-gradient(135deg, #fafafa 0%, #f5f7fa 100%);
     --card: #ffffff;
     --text: #1d1d1f;
     --muted: #424245;
     --muted2: #6e6e73;
     --border: rgba(0, 0, 0, 0.08);
+    --border-light: rgba(0, 0, 0, 0.04);
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     --shadow2: 0 6px 18px rgba(0, 0, 0, 0.06);
     --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 40px rgba(0, 0, 0, 0.06);
+    --accent: #0066ff;
+    --accent-light: rgba(0, 102, 255, 0.1);
     --radius: 18px;
     --radius2: 24px;
+    --radius-sm: 12px;
     --focus: rgba(0, 0, 0, 0.12);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --gradient-subtle: linear-gradient(135deg, rgba(0, 102, 255, 0.03) 0%, rgba(0, 102, 255, 0.01) 100%);
 }
 
 * {
@@ -27,7 +34,8 @@ html {
 
 body {
     font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg);
+    background: var(--bg-gradient);
+    background-attachment: fixed;
     color: var(--text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -117,10 +125,11 @@ body {
 }
 
 .btn-primary {
-    background-color: var(--text);
+    background: linear-gradient(135deg, var(--text) 0%, #2a2a2a 100%);
     color: var(--bg);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary::before {
@@ -130,7 +139,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
     transition: left 0.5s ease;
 }
 
@@ -140,12 +149,12 @@ body {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:active {
     transform: translateY(0);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary:focus {
@@ -238,9 +247,13 @@ body {
     line-height: 1.1;
     margin-bottom: 28px;
     color: var(--text);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    background: linear-gradient(135deg, var(--text) 0%, var(--muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 @keyframes fadeInUp {
@@ -313,18 +326,34 @@ body {
     position: relative;
     width: 100%;
     max-width: 375px;
-    background: #000000;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     border-radius: 40px;
     padding: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 80px rgba(0, 0, 0, 0.1);
     transform: translateY(30px);
     opacity: 0;
     animation: fadeInUp 1s ease-out 0.8s forwards;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phone-frame::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 44px;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .phone-frame:hover {
     transform: translateY(20px) scale(1.02);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 100px rgba(0, 102, 255, 0.15);
+}
+
+.phone-frame:hover::before {
+    opacity: 1;
 }
 
 .phone-notch {
@@ -372,13 +401,27 @@ body {
 /* Card */
 .card {
     background-color: var(--card);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius2);
     box-shadow: var(--shadow);
     transition: var(--transition);
     transform: translateY(0);
     opacity: 0;
     animation: fadeInUp 0.6s ease-out forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-subtle);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .card.visible {
@@ -386,27 +429,58 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover), var(--shadow-glow);
+    border-color: var(--border);
+}
+
+.card:hover::before {
+    opacity: 1;
 }
 
 /* Examples Section */
 .examples-section {
-    padding: 80px 0;
-    background-color: var(--bg);
+    padding: 100px 0;
+    background: var(--bg-gradient);
+    position: relative;
+}
+
+.examples-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
 .section-title {
-    font-size: clamp(32px, 4vw, 52px);
+    font-size: clamp(32px, 4vw, 56px);
     font-weight: 700;
     text-align: center;
     margin-bottom: 64px;
     color: var(--text);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    border-radius: 2px;
+    opacity: 0.6;
 }
 
 .section-title.visible {
@@ -458,7 +532,19 @@ body {
 
 /* How It Works */
 .how-it-works {
-    padding: 80px 0;
+    padding: 100px 0;
+    background: var(--card);
+    position: relative;
+}
+
+.how-it-works::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
 .steps-grid {
@@ -472,22 +558,38 @@ body {
 }
 
 .step-icon {
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
     margin: 0 auto 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--muted);
-    background: rgba(0, 0, 0, 0.02);
-    border-radius: 18px;
+    background: var(--gradient-subtle);
+    border-radius: 20px;
     transition: var(--transition);
+    position: relative;
+}
+
+.step-icon::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, var(--accent-light), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .step-card:hover .step-icon {
     transform: scale(1.1) rotate(5deg);
     color: var(--text);
-    background: rgba(0, 0, 0, 0.04);
+    background: var(--accent-light);
+}
+
+.step-card:hover .step-icon::after {
+    opacity: 1;
 }
 
 .step-title {
@@ -505,8 +607,19 @@ body {
 
 /* Why Section */
 .why-section {
-    padding: 80px 0;
-    background-color: var(--bg);
+    padding: 100px 0;
+    background: var(--bg-gradient);
+    position: relative;
+}
+
+.why-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
 .benefits-grid {
@@ -540,7 +653,18 @@ body {
 /* Social Proof - Apple Style */
 .social-proof {
     padding: 100px 0;
-    background-color: var(--bg);
+    background: var(--bg-gradient);
+    position: relative;
+}
+
+.social-proof::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
 .quotes-grid {
@@ -571,10 +695,11 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 3px;
+    width: 4px;
     height: 0;
-    background: var(--text);
+    background: linear-gradient(180deg, var(--accent) 0%, var(--text) 100%);
     transition: height 0.3s ease;
+    border-radius: 0 2px 2px 0;
 }
 
 .quote-card:hover::before {
@@ -598,8 +723,16 @@ body {
     height: 56px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--border);
+    border: 3px solid var(--border-light);
     flex-shrink: 0;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.quote-card:hover .quote-avatar {
+    border-color: var(--accent-light);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.15);
+    transform: scale(1.05);
 }
 
 .quote-info {
@@ -672,7 +805,19 @@ body {
 
 /* Features Section */
 .features-section {
-    padding: 80px 0;
+    padding: 100px 0;
+    background: var(--card);
+    position: relative;
+}
+
+.features-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
 .features-grid {
@@ -706,7 +851,18 @@ body {
 /* FAQ Section - Apple Style */
 .faq-section {
     padding: 100px 0;
-    background-color: var(--bg);
+    background: var(--card);
+    position: relative;
+}
+
+.faq-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
 .faq-container {
