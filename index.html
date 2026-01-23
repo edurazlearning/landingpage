@@ -13,13 +13,21 @@
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="apple-touch-icon" href="assets/favicon.svg">
 </head>
-<body>
+<body class="has-loader">
+    <div class="page-loader" id="page-loader" aria-hidden="true">
+        <div class="page-loader-inner">
+            <span class="page-loader-logo">EduraZ</span>
+            <div class="page-loader-bar"></div>
+        </div>
+    </div>
     <!-- Sticky Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
             <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">EduraZ</a>
             <div class="nav-actions">
                 <a href="about.html" class="btn btn-secondary">About</a>
+                <a href="report-bug.html" class="btn btn-secondary">Report a bug</a>
+                <a href="investors.html" class="btn btn-secondary">Support</a>
                 <a href="https://eduraz.com/" class="btn btn-primary">Try the free app</a>
             </div>
         </div>
@@ -30,7 +38,7 @@
         <div class="container">
             <h1 class="hero-title">Turn confusion into clarity. Your perfect learning path, built in 30 seconds.</h1>
             <p class="hero-subtitle">Stop wasting hours searching. Start learning smarter. Get a personalized roadmap tailored to your goals, pace, and schedule. Weekly milestones. Daily tasks. Real progress.</p>
-            <p class="hero-free">Completely free • No credit card • Always accessible</p>
+            <p class="hero-free">Completely free, no credit card, always accessible</p>
             <div class="hero-actions">
                 <a href="https://eduraz.com/" class="btn btn-primary btn-large">Try the free app</a>
                 <button class="btn btn-secondary btn-large" onclick="document.getElementById('examples').scrollIntoView({behavior: 'smooth'})">See examples</button>
@@ -273,6 +281,13 @@
         </div>
     </section>
 
+    <!-- Footer promo -->
+    <div class="footer-promo">
+        <div class="container">
+            <p>Something broken? <a href="report-bug.html">Report it</a>. Want to back us? <a href="investors.html">Support EduraZ</a></p>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -280,6 +295,8 @@
                 <div class="footer-links">
                     <a href="https://eduraz.com/" class="footer-link">Try the free app</a>
                     <a href="about.html" class="footer-link">About</a>
+                    <a href="report-bug.html" class="footer-link">Report a bug</a>
+                    <a href="investors.html" class="footer-link">Support</a>
                     <a href="privacy.html" class="footer-link">Privacy</a>
                     <a href="security.html" class="footer-link">Security</a>
                 </div>

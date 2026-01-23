@@ -1,3 +1,19 @@
+// Page loader: hide when ready and reveal body (index only)
+(function() {
+    var loader = document.getElementById('page-loader');
+    function hideLoader() {
+        if (!loader) return;
+        loader.classList.add('hidden');
+        document.body.classList.add('page-ready');
+    }
+    if (!loader) return;
+    if (document.readyState === 'complete') {
+        setTimeout(hideLoader, 520);
+    } else {
+        window.addEventListener('load', function() { setTimeout(hideLoader, 520); });
+    }
+})();
+
 // Load Example - Scroll to phone preview
 function loadExample(button) {
     // Scroll to preview section (phone mockup)
