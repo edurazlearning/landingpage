@@ -266,7 +266,7 @@ body.has-loader.page-ready {
 
 /* Hero Section */
 .hero {
-    padding: 120px 0 140px;
+    padding: 120px 0 60px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -381,12 +381,13 @@ body.page-ready .hero-note {
     animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
 }
 
-/* Preview Section - Phone Mockup */
+/* Preview Section - Landing Image */
 .preview-section {
-    padding: 80px 0;
+    padding: 0 0 100px 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .phone-mockup {
@@ -394,8 +395,49 @@ body.page-ready .hero-note {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 400px;
+    max-width: 900px;
     margin: 0 auto;
+    padding: 0 24px;
+}
+
+.landing-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: var(--radius2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), 
+                box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.5s ease;
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+body.page-ready .landing-image {
+    animation: landingImageIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+
+.landing-image:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15), 
+                0 0 0 1px rgba(0, 0, 0, 0.08),
+                0 0 100px rgba(0, 102, 255, 0.1);
+    filter: brightness(1.05) contrast(1.02);
+}
+
+.landing-image:active {
+    transform: translateY(-8px) scale(1.01);
+}
+
+@keyframes landingImageIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .phone-frame {
@@ -524,7 +566,7 @@ body.page-ready .phone-frame {
 
 /* Examples Section */
 .examples-section {
-    padding: 100px 0;
+    padding: 80px 0 100px 0;
     background: var(--bg-gradient);
     position: relative;
 }
@@ -1152,21 +1194,18 @@ body.page-ready .phone-frame {
         padding: 0 16px;
     }
 
-    .phone-frame {
-        max-width: 320px;
-        padding: 8px;
-        border-radius: 32px;
+    .landing-image {
+        border-radius: var(--radius);
+        max-height: 65vh;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.03);
     }
-
-    .phone-screen {
-        height: 500px;
-        border-radius: 24px;
+    
+    .preview-section {
+        padding: 0 0 60px 0;
     }
-
-    .phone-notch {
-        width: 120px;
-        height: 20px;
-        border-radius: 0 0 16px 16px;
+    
+    .hero {
+        padding: 80px 0 40px;
     }
 
     .container {
